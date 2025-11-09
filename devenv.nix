@@ -15,6 +15,7 @@
     pkgs.git
     pkgs.gitleaks
     pkgs.python313Packages.pre-commit-hooks
+    pkgs.rubyPackages.rubocop
   ];
 
   # https://devenv.sh/languages/
@@ -61,6 +62,12 @@
     # https://github.com/NixOS/nixfmt/blob/2caa09642c3cde5985cf8d239ffc66094c344c57/README.md?plain=1#L168
     nixfmt-rfc-style.enable = true;
     prettier.enable = true;
+    rubocop = {
+      enable = true;
+      # https://github.com/rubocop/rubocop/blob/4cfb283fc421a5b8982f1350dfd9b27b6daddb43/.pre-commit-hooks.yaml
+      entry = "rubocop --autocorrect --force-exclusion";
+      types = [ "ruby" ];
+    };
     trailing-whitespace = {
       enable = true;
       # https://github.com/pre-commit/pre-commit-hooks/blob/5c514f85cc9be49324a6e3664e891ac2fc8a8609/.pre-commit-hooks.yaml#L205-L212
