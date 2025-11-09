@@ -26,3 +26,8 @@ jobs:
 
       - name: Run a single command in the devenv shell
         run: devenv shell hello
+      # https://github.com/Homebrew/actions/blob/6608395265063b0b4534ee5672930fa31cd45f94/setup-homebrew/README.md?plain=1#L10-L12
+      - name: Set up Homebrew
+        id: set-up-homebrew
+        uses: Homebrew/actions/setup-homebrew@6608395265063b0b4534ee5672930fa31cd45f94 # main
+      - run: brew install spam
