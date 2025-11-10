@@ -4,6 +4,8 @@
 class Spam < Formula
   url 'https://github.com/8ta4/spam/releases/download/v0.1.1/spam.tar.gz'
   sha256 'c43c39d344494ad07778bd2fdbb4820b95dea1dd185d7383c020f9073c7fbea3'
+  depends_on 'node'
+  depends_on 'temporal'
   def install
     libexec.install Dir['*']
     (bin / 'spam').write <<~SHELL
